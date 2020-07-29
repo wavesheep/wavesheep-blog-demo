@@ -1,19 +1,9 @@
 const CACHE_NAME = 'wavesheep-blog-v1';
-const selfToCache = [
+const preCache = [
   '/js/sw-register.js',
   '/js/snackbar.js',
   '/css/snackbar.css'
-].map((url) => self.location.origin + url);
-
-const thirdPartToCache = [
-  '//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.1.2/build/styles/atom-one-dark.min.css',
-  '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js',
-  '//cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Zero.woff',
-  '//cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Math-Italic.woff',
-  '//cdn.jsdelivr.net/npm/mathjax@3/es5/output/chtml/fonts/woff-v2/MathJax_Main-Regular.woff'
-].map((url) => self.location.protocol + url);
-
-const urlsToCache = selfToCache.concat(thirdPartToCache);
+];
 
 self.addEventListener('install', (event) => {
   self.skipWaiting();
@@ -21,18 +11,18 @@ self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME)
     .then(function (cache) {
-      return cache.addAll(urlsToCache);
+      return cache.addAll(preCache);
     })
   );
 });
 
 self.addEventListener('fetch', (event) => {
-  if (urlsToCache.indexOf(event.request.url) !== -1) { // cache only
+  if (preCache.indexOf(event.request.url) !== -1) { // cache only
     event.respondWith(
       caches.match(event.request)
     )
   } else if (event.request.url.startsWith(self.location.origin) && event.request.url !== self.location.origin + '/' ||
-    event.request.url.startsWith('https://cdn.jsdelivr.net/gh/twitter/')) { // runtime cache
+    event.request.url.startsWith('https://cdn.jsdelivr.net')) { // runtime cache
     event.respondWith(
       caches.match(event.request)
       .then((response) => {
@@ -70,7 +60,6 @@ self.addEventListener('fetch', (event) => {
             fetched.then(fetchedResponse => {
               const fetchedETag = fetchedResponse.headers.get('etag');
               const cachedETag = response.headers.get('etag');
-              // console.log(event.request.url, fetchedETag, cachedETag)
 
               if (fetchedETag !== cachedETag) {
                 caches.open(CACHE_NAME)
@@ -81,13 +70,12 @@ self.addEventListener('fetch', (event) => {
                     setTimeout(() => {
                       self.clients.matchAll().then(clients => {
                         clients.forEach(client => {
-                          console.log(client);
                           client.postMessage({
                             'command': 'UPDATE_FOUND'
                           })
                         })
                       })
-                    }, 5000)
+                    }, 1000)
                   })
               }
             })
@@ -105,7 +93,7 @@ self.addEventListener('fetch', (event) => {
         return fetched;
       })
     )
-  } else { // network first
+  } else { // network only
     event.respondWith(
       fetch(event.request).catch(_ => {})
     )

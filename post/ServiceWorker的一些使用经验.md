@@ -3,7 +3,7 @@ title: "ServiceWorker的一些使用经验"
 subtitle: "My experience of using ServiceWorker"
 background: "/img/service-worker.webp"
 author: "wavesheep"
-date: "2019-9-15 12:00:00"
+date: "2019-09-15 12:00:00"
 tags:
 - "ServiceWorker"
 ---

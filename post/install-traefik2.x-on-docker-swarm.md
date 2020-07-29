@@ -3,7 +3,7 @@ title: "在Docker Swarm上部署Traefik2.x"
 subtitle: "Install Traefik2.x on Docker Swarm"
 background: "/img/traefik-dashboard.webp"
 author: "wavesheep"
-date: "2020-1-25 12:00:00"
+date: "2020-01-25 12:00:00"
 tags:
 - "教程"
 - "docker swarm"

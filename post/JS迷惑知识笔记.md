@@ -3,7 +3,7 @@ title: "JS迷惑知识笔记"
 subtitle: "Confusing JS note"
 background: "/img/js.webp"
 author: "wavesheep"
-date: "2019-8-6 12:00:00"
+date: "2019-08-06 12:00:00"
 tags:
 - "笔记"
 - "js"

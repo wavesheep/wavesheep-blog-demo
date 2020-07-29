@@ -2,7 +2,7 @@
 title: "解决云服务器docker swarm节点间无法通信问题"
 subtitle: "Solved the problem that cloud server docker swarm nodes could not communicate with each other"
 author: "wavesheep"
-date: "2020-1-19 12:00:00"
+date: "2020-01-19 12:00:00"
 tags:
 - "杂记"
 - "docker swarm"

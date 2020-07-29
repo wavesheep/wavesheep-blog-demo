@@ -1,46 +1,42 @@
 export default {
   owner: 'wavesheep',
   beian: {
-    icp: '浙ICP备18012053号-2',
-    gongan: {
-      name: '浙公网安备 111111111111',
-      code: '123456789'
-    }
+    icp: '浙ICP备18012053号-2'
   },
   title: 'wavesheep blog | wavesheep的博客',
   keywords: '杨海波, wavesheep, @wavesheep, 杨海波的博客, wavesheep的博客, wavesheep blog, 博客, blog, 个人网站, 互联网, web, javascript, 前端',
   index: {
     title: 'Wavesheep Blog',
     description: '代码艺术生活...总之你能想到的这里都有',
-    img: '/img/home-bg.jpg'
+    img: '/img/home.webp'
   },
   about: {
     title: 'About',
     description: 'Hi, I am wavesheep',
-    img: '/img/home-bg.jpg'
+    img: '/img/about.webp'
   },
   archive: {
     title: 'Archive',
     description: '我把我的全部都给你',
-    img: '/img/tag-bg.jpg'
+    img: '/img/archive.webp'
   },
   portfolid: {
     title: 'Portfolid',
     description: 'idea -> reality',
-    img: '/img/home-bg.jpg'
+    img: '/img/portfolid.webp'
   },
   error: {
     description: '这里似乎是一切的尽头:(',
-    img: '/img/error.jpg'
+    img: '/img/error.webp'
   },
   socialAccount: {
     github: 'https://github.com/wavesheep',
-    wechat: '/img/weixinqr.jpg'
+    wechat: '/img/weixinqr.webp'
   },
   analytics: {
     baidu: {
       enable: true,
-      id: '843684005c74531449b7a78f30ef952c'
+      id: '3f7cad84bdb2375827d61f8a661125fc'
     },
     google: {
       enable: true,
@@ -49,8 +45,8 @@ export default {
   },
   vssue: {
     owner: 'wavesheep',
-    repo: 'wavesheep-blog-demo',
-    clientId: '',
-    clientSecret: ''
+    repo: 'blog',
+    clientId: '2a3d670983eae9bf351a',
+    clientSecret: 'c8ad1541b8a0ff95e117dbcb8a4091469e7ed73f'
   }
 }

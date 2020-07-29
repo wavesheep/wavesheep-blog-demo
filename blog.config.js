@@ -45,8 +45,6 @@ export default {
   },
   vssue: {
     owner: 'wavesheep',
-    repo: 'blog',
-    clientId: '2a3d670983eae9bf351a',
-    clientSecret: 'c8ad1541b8a0ff95e117dbcb8a4091469e7ed73f'
+    repo: 'wavesheep-blog-demo'
   }
 }
